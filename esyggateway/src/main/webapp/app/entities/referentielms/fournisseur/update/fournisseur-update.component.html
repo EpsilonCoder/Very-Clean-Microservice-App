@@ -1,0 +1,213 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-fournisseur-heading"
+        data-cy="FournisseurCreateUpdateHeading"
+        jhiTranslate="esyggatewayApp.referentielmsFournisseur.home.createOrEditLabel"
+      >
+        Créer ou éditer un Fournisseur
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.raisonSociale" for="field_raisonSociale"
+            >Raison Sociale</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="raisonSociale"
+            id="field_raisonSociale"
+            data-cy="raisonSociale"
+            formControlName="raisonSociale"
+          />
+          <div
+            *ngIf="
+              editForm.get('raisonSociale')!.invalid && (editForm.get('raisonSociale')!.dirty || editForm.get('raisonSociale')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('raisonSociale')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.adresse" for="field_adresse">Adresse</label>
+          <input type="text" class="form-control" name="adresse" id="field_adresse" data-cy="adresse" formControlName="adresse" />
+          <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('adresse')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.telephone" for="field_telephone">Telephone</label>
+          <input type="text" class="form-control" name="telephone" id="field_telephone" data-cy="telephone" formControlName="telephone" />
+          <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('telephone')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.pieceJointe" for="field_pieceJointe"
+            >Piece Jointe</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="pieceJointe"
+            id="field_pieceJointe"
+            data-cy="pieceJointe"
+            formControlName="pieceJointe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="esyggatewayApp.referentielmsFournisseur.numeroRegistreCommerce"
+            for="field_numeroRegistreCommerce"
+            >Numero Registre Commerce</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numeroRegistreCommerce"
+            id="field_numeroRegistreCommerce"
+            data-cy="numeroRegistreCommerce"
+            formControlName="numeroRegistreCommerce"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.date" for="field_date">Date</label>
+          <div class="d-flex">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="datetime-local"
+              class="form-control"
+              name="date"
+              formControlName="date"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('date')!.invalid && (editForm.get('date')!.dirty || editForm.get('date')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('date')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('date')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              Ce champ doit être une date et une heure.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.sigle" for="field_sigle">Sigle</label>
+          <input type="text" class="form-control" name="sigle" id="field_sigle" data-cy="sigle" formControlName="sigle" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="esyggatewayApp.referentielmsFournisseur.numeroIdentiteFiscale"
+            for="field_numeroIdentiteFiscale"
+            >Numero Identite Fiscale</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numeroIdentiteFiscale"
+            id="field_numeroIdentiteFiscale"
+            data-cy="numeroIdentiteFiscale"
+            formControlName="numeroIdentiteFiscale"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="esyggatewayApp.referentielmsFournisseur.categorieFournisseur"
+            for="field_categorieFournisseur"
+            >Categorie Fournisseur</label
+          >
+          <select
+            class="form-control"
+            id="field_categorieFournisseur"
+            data-cy="categorieFournisseur"
+            name="categorieFournisseur"
+            formControlName="categorieFournisseur"
+            [compareWith]="compareCategorieFournisseur"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="categorieFournisseurOption" *ngFor="let categorieFournisseurOption of categorieFournisseursSharedCollection">
+              {{ categorieFournisseurOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsFournisseur.pays" for="field_pays">Pays</label>
+          <select class="form-control" id="field_pays" data-cy="pays" name="pays" formControlName="pays" [compareWith]="comparePays">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="paysOption" *ngFor="let paysOption of paysSharedCollection">{{ paysOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+package sn.ssi.sigmap.repository;
+
+import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.Repository;
+import sn.ssi.sigmap.domain.Categories;
+
+/**
+ * Spring Data JPA repository for the Categories entity.
+ */
+@SuppressWarnings("unused")
+@Repository
+public interface CategoriesRepository extends JpaRepository<Categories, Long> {}

@@ -1,0 +1,38 @@
+{
+  "esyggatewayApp": {
+    "referentielmsFournisseur": {
+      "home": {
+        "title": "Fournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Fournisseur",
+        "notFound": "Aucun Fournisseur trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fournisseur"
+      },
+      "id": "ID",
+      "raisonSociale": "Raison Sociale",
+      "adresse": "Adresse",
+      "email": "Email",
+      "telephone": "Telephone",
+      "pieceJointe": "Piece Jointe",
+      "numeroRegistreCommerce": "Numero Registre Commerce",
+      "date": "Date",
+      "sigle": "Sigle",
+      "numeroIdentiteFiscale": "Numero Identite Fiscale",
+      "categorieFournisseur": "Categorie Fournisseur",
+      "pays": "Pays"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsFournisseur": {
+      "created": "Un nouveau Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fournisseur avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

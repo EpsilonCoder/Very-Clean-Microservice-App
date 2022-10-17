@@ -1,0 +1,186 @@
+<div>
+  <h2 id="page-heading" data-cy="FournisseurHeading">
+    <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.home.title">Fournisseurs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-fournisseur"
+        [routerLink]="['/fournisseur/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.home.createLabel"> Créer un nouveau Fournisseur </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fournisseurs?.length === 0">
+    <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.home.notFound">Aucun Fournisseur trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="fournisseurs && fournisseurs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="raisonSociale">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.raisonSociale">Raison Sociale</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="adresse">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.adresse">Adresse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="telephone">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.telephone">Telephone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pieceJointe">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.pieceJointe">Piece Jointe</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numeroRegistreCommerce">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.numeroRegistreCommerce">Numero Registre Commerce</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.date">Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sigle">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.sigle">Sigle</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numeroIdentiteFiscale">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.numeroIdentiteFiscale">Numero Identite Fiscale</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="categorieFournisseur.id">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.categorieFournisseur">Categorie Fournisseur</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pays.id">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.pays">Pays</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fournisseur of fournisseurs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/fournisseur', fournisseur.id, 'view']">{{ fournisseur.id }}</a>
+          </td>
+          <td>{{ fournisseur.raisonSociale }}</td>
+          <td>{{ fournisseur.adresse }}</td>
+          <td>{{ fournisseur.email }}</td>
+          <td>{{ fournisseur.telephone }}</td>
+          <td>{{ fournisseur.pieceJointe }}</td>
+          <td>{{ fournisseur.numeroRegistreCommerce }}</td>
+          <td>{{ fournisseur.date | formatMediumDatetime }}</td>
+          <td>{{ fournisseur.sigle }}</td>
+          <td>{{ fournisseur.numeroIdentiteFiscale }}</td>
+          <td>
+            <div *ngIf="fournisseur.categorieFournisseur">
+              <a [routerLink]="['/categorie-fournisseur', fournisseur.categorieFournisseur.id, 'view']">{{
+                fournisseur.categorieFournisseur.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="fournisseur.pays">
+              <a [routerLink]="['/pays', fournisseur.pays.id, 'view']">{{ fournisseur.pays.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/fournisseur', fournisseur.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(fournisseur)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="fournisseurs && fournisseurs.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

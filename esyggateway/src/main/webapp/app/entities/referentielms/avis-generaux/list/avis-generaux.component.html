@@ -1,0 +1,165 @@
+<div>
+  <h2 id="page-heading" data-cy="AvisGenerauxHeading">
+    <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.home.title">AvisGenerauxes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-avis-generaux"
+        [routerLink]="['/avis-generaux/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.home.createLabel"> Créer un nouveau Avis Generaux </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="avisGenerauxes?.length === 0">
+    <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.home.notFound">Aucun Avis Generaux trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="avisGenerauxes && avisGenerauxes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numero">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.numero">Numero</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="annee">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.annee">Annee</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fichierAvis">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.fichierAvis">Fichier Avis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="version">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.version">Version</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastVersionValid">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.lastVersionValid">Last Version Valid</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="etat">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.etat">Etat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="datePublication">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.datePublication">Date Publication</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let avisGeneraux of avisGenerauxes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/avis-generaux', avisGeneraux.id, 'view']">{{ avisGeneraux.id }}</a>
+          </td>
+          <td>{{ avisGeneraux.numero }}</td>
+          <td>{{ avisGeneraux.annee }}</td>
+          <td>{{ avisGeneraux.description }}</td>
+          <td>
+            <a
+              *ngIf="avisGeneraux.fichierAvis"
+              (click)="openFile(avisGeneraux.fichierAvis, avisGeneraux.fichierAvisContentType)"
+              jhiTranslate="entity.action.open"
+              >Ouvrir</a
+            >
+            <span *ngIf="avisGeneraux.fichierAvis"
+              >{{ avisGeneraux.fichierAvisContentType }}, {{ byteSize(avisGeneraux.fichierAvis) }}</span
+            >
+          </td>
+          <td>{{ avisGeneraux.version }}</td>
+          <td>{{ avisGeneraux.lastVersionValid }}</td>
+          <td>{{ avisGeneraux.etat }}</td>
+          <td>{{ avisGeneraux.datePublication | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/avis-generaux', avisGeneraux.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/avis-generaux', avisGeneraux.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(avisGeneraux)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="avisGenerauxes && avisGenerauxes.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

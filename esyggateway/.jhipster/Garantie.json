@@ -1,0 +1,32 @@
+{
+  "changelogDate": "20210814173427",
+  "clientRootFolder": "referentielms",
+  "databaseType": "sql",
+  "dto": "no",
+  "entityTableName": "garantie",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "typeGarantie",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "referentielms",
+  "name": "Garantie",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": false,
+  "service": "no"
+}

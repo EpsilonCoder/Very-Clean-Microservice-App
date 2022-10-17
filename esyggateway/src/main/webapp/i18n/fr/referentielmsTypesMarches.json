@@ -1,0 +1,30 @@
+{
+  "esyggatewayApp": {
+    "referentielmsTypesMarches": {
+      "home": {
+        "title": "TypesMarches",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Types Marches",
+        "createOrEditLabel": "Créer ou éditer un Types Marches",
+        "notFound": "Aucun Types Marches trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Types Marches {{ id }} ?"
+      },
+      "detail": {
+        "title": "Types Marches"
+      },
+      "id": "ID",
+      "code": "Code",
+      "libelle": "Libelle",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsTypesMarches": {
+      "created": "Un nouveau Types Marches a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Types Marches avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Types Marches avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

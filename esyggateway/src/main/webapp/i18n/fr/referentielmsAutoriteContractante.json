@@ -1,0 +1,27 @@
+{
+  "esyggatewayApp": {
+    "referentielmsAutoriteContractante": {
+      "home": {
+        "title": "AutoriteContractantes",
+        "refreshListLabel": "Actualiser la liste",
+        "notFound": "Aucun Autorite Contractante trouvé"
+      },
+      "detail": {
+        "title": "Autorite Contractante"
+      },
+      "id": "ID",
+      "ordre": "Ordre",
+      "denomination": "Denomination",
+      "responsable": "Responsable",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "fax": "Fax",
+      "email": "Email",
+      "sigle": "Sigle",
+      "urlsiteweb": "Urlsiteweb",
+      "approbation": "Approbation",
+      "logo": "Logo",
+      "type": "Type"
+    }
+  }
+}

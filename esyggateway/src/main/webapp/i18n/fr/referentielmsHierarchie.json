@@ -1,0 +1,28 @@
+{
+  "esyggatewayApp": {
+    "referentielmsHierarchie": {
+      "home": {
+        "title": "Hierarchies",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Hierarchie",
+        "createOrEditLabel": "Créer ou éditer un Hierarchie",
+        "notFound": "Aucun Hierarchie trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Hierarchie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hierarchie"
+      },
+      "id": "ID",
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsHierarchie": {
+      "created": "Un nouveau Hierarchie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hierarchie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hierarchie avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

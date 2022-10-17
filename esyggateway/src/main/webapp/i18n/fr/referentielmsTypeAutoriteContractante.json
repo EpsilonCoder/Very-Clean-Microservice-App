@@ -1,0 +1,32 @@
+{
+  "esyggatewayApp": {
+    "referentielmsTypeAutoriteContractante": {
+      "home": {
+        "title": "TypeAutoriteContractantes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Type Autorite Contractante",
+        "createOrEditLabel": "Créer ou éditer un Type Autorite Contractante",
+        "notFound": "Aucun Type Autorite Contractante trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Type Autorite Contractante {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Autorite Contractante"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "description": "Description",
+      "ordre": "Ordre",
+      "chapitre": "Chapitre"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsTypeAutoriteContractante": {
+      "created": "Un nouveau Type Autorite Contractante a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Autorite Contractante avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Autorite Contractante avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

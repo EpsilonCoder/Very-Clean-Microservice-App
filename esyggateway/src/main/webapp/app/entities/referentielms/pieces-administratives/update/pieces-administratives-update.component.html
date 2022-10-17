@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-pieces-administratives-heading"
+        data-cy="PiecesAdministrativesCreateUpdateHeading"
+        jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.home.createOrEditLabel"
+      >
+        Créer ou éditer un Pieces Administratives
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+          <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('code')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.libelle" for="field_libelle"
+            >Libelle</label
+          >
+          <input type="text" class="form-control" name="libelle" id="field_libelle" data-cy="libelle" formControlName="libelle" />
+          <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('libelle')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.localisation" for="field_localisation"
+            >Localisation</label
+          >
+          <select class="form-control" name="localisation" formControlName="localisation" id="field_localisation" data-cy="localisation">
+            <option [ngValue]="null">{{ 'esyggatewayApp.enumLocalisation.null' | translate }}</option>
+            <option *ngFor="let enumLocalisation of enumLocalisationValues" [value]="enumLocalisation">
+              {{ 'esyggatewayApp.enumLocalisation.' + enumLocalisation | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="editForm.get('localisation')!.invalid && (editForm.get('localisation')!.dirty || editForm.get('localisation')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localisation')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.type" for="field_type">Type</label>
+          <input type="number" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

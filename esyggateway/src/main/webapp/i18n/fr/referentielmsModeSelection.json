@@ -1,0 +1,30 @@
+{
+  "esyggatewayApp": {
+    "referentielmsModeSelection": {
+      "home": {
+        "title": "ModeSelections",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Mode Selection",
+        "createOrEditLabel": "Créer ou éditer un Mode Selection",
+        "notFound": "Aucun Mode Selection trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Mode Selection {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mode Selection"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsModeSelection": {
+      "created": "Un nouveau Mode Selection a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mode Selection avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mode Selection avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

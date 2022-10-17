@@ -1,0 +1,74 @@
+{
+  "changelogDate": "20211104112100",
+  "clientRootFolder": "referentielms",
+  "databaseType": "sql",
+  "dto": "no",
+  "entityTableName": "fournisseur",
+  "fields": [
+    {
+      "fieldName": "raisonSociale",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "telephone",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "pieceJointe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroRegistreCommerce",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sigle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroIdentiteFiscale",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "referentielms",
+  "name": "Fournisseur",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "categorieFournisseur",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "categorieFournisseur",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "pays",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "pays",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "no"
+}

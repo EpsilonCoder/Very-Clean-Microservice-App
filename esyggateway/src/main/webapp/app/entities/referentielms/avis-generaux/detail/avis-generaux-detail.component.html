@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="avisGeneraux">
+      <h2 data-cy="avisGenerauxDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.detail.title">Avis Generaux</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.numero">Numero</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.annee">Annee</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.annee }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.description">Description</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.fichierAvis">Fichier Avis</span></dt>
+        <dd>
+          <div *ngIf="avisGeneraux.fichierAvis">
+            <a (click)="openFile(avisGeneraux.fichierAvis, avisGeneraux.fichierAvisContentType)" jhiTranslate="entity.action.open"
+              >Ouvrir</a
+            >
+            {{ avisGeneraux.fichierAvisContentType }}, {{ byteSize(avisGeneraux.fichierAvis) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.version">Version</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.lastVersionValid">Last Version Valid</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.lastVersionValid }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.etat">Etat</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAvisGeneraux.datePublication">Date Publication</span></dt>
+        <dd>
+          <span>{{ avisGeneraux.datePublication | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/avis-generaux', avisGeneraux.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

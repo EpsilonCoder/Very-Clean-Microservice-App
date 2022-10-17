@@ -1,0 +1,34 @@
+{
+  "esyggatewayApp": {
+    "referentielmsDelais": {
+      "home": {
+        "title": "Delais",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Delais",
+        "createOrEditLabel": "Créer ou éditer un Delais",
+        "notFound": "Aucun Delais trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Delais {{ id }} ?"
+      },
+      "detail": {
+        "title": "Delais"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "unite": "Unite",
+      "valeur": "Valeur",
+      "debutValidite": "Debut Validite",
+      "finValidite": "Fin Validite",
+      "commentaires": "Commentaires"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsDelais": {
+      "created": "Un nouveau Delais a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Delais avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Delais avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

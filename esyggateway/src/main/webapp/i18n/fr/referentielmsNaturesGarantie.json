@@ -1,0 +1,28 @@
+{
+  "esyggatewayApp": {
+    "referentielmsNaturesGarantie": {
+      "home": {
+        "title": "NaturesGaranties",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Natures Garantie",
+        "createOrEditLabel": "Créer ou éditer un Natures Garantie",
+        "notFound": "Aucun Natures Garantie trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Natures Garantie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Natures Garantie"
+      },
+      "id": "ID",
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsNaturesGarantie": {
+      "created": "Un nouveau Natures Garantie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Natures Garantie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Natures Garantie avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

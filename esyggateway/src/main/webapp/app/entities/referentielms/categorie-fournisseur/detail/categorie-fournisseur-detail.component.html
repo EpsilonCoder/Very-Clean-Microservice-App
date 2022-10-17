@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="categorieFournisseur">
+      <h2 data-cy="categorieFournisseurDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsCategorieFournisseur.detail.title">Categorie Fournisseur</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ categorieFournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsCategorieFournisseur.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ categorieFournisseur.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsCategorieFournisseur.description">Description</span></dt>
+        <dd>
+          <span>{{ categorieFournisseur.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

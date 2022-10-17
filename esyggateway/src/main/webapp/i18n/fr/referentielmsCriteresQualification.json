@@ -1,0 +1,28 @@
+{
+  "esyggatewayApp": {
+    "referentielmsCriteresQualification": {
+      "home": {
+        "title": "CriteresQualifications",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Criteres Qualification",
+        "createOrEditLabel": "Créer ou éditer un Criteres Qualification",
+        "notFound": "Aucun Criteres Qualification trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Criteres Qualification {{ id }} ?"
+      },
+      "detail": {
+        "title": "Criteres Qualification"
+      },
+      "id": "ID",
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsCriteresQualification": {
+      "created": "Un nouveau Criteres Qualification a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Criteres Qualification avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Criteres Qualification avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,207 @@
+<div>
+  <h2 id="page-heading" data-cy="SygAutoriteContractanteHeading">
+    <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.home.title">SygAutoriteContractantes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-syg-autorite-contractante"
+        [routerLink]="['/syg-autorite-contractante/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.home.createLabel">
+          Créer un nouveau Syg Autorite Contractante
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sygAutoriteContractantes?.length === 0">
+    <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.home.notFound">Aucun Syg Autorite Contractante trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="sygAutoriteContractantes && sygAutoriteContractantes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ordre">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.ordre">Ordre</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="denomination">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.denomination">Denomination</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="responsable">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.responsable">Responsable</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="adresse">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.adresse">Adresse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="telephone">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.telephone">Telephone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fax">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.fax">Fax</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sigle">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.sigle">Sigle</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="urlsiteweb">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.urlsiteweb">Urlsiteweb</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="approbation">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.approbation">Approbation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="logo">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.logo">Logo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="typeAutoriteContractante.id">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.typeAutoriteContractante"
+                >Type Autorite Contractante</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sygAutoriteContractante of sygAutoriteContractantes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/syg-autorite-contractante', sygAutoriteContractante.id, 'view']">{{ sygAutoriteContractante.id }}</a>
+          </td>
+          <td>{{ sygAutoriteContractante.ordre }}</td>
+          <td>{{ sygAutoriteContractante.denomination }}</td>
+          <td>{{ sygAutoriteContractante.responsable }}</td>
+          <td>{{ sygAutoriteContractante.adresse }}</td>
+          <td>{{ sygAutoriteContractante.telephone }}</td>
+          <td>{{ sygAutoriteContractante.fax }}</td>
+          <td>{{ sygAutoriteContractante.email }}</td>
+          <td>{{ sygAutoriteContractante.sigle }}</td>
+          <td>{{ sygAutoriteContractante.urlsiteweb }}</td>
+          <td>{{ sygAutoriteContractante.approbation }}</td>
+          <td>
+            <a
+              *ngIf="sygAutoriteContractante.logo"
+              (click)="openFile(sygAutoriteContractante.logo, sygAutoriteContractante.logoContentType)"
+            >
+              <img
+                [src]="'data:' + sygAutoriteContractante.logoContentType + ';base64,' + sygAutoriteContractante.logo"
+                style="max-height: 30px"
+                alt="sygAutoriteContractante image"
+              />
+            </a>
+            <span *ngIf="sygAutoriteContractante.logo"
+              >{{ sygAutoriteContractante.logoContentType }}, {{ byteSize(sygAutoriteContractante.logo) }}</span
+            >
+          </td>
+          <td>
+            <div *ngIf="sygAutoriteContractante.typeAutoriteContractante">
+              <a [routerLink]="['/type-autorite-contractante', sygAutoriteContractante.typeAutoriteContractante.id, 'view']">{{
+                sygAutoriteContractante.typeAutoriteContractante.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/syg-autorite-contractante', sygAutoriteContractante.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/syg-autorite-contractante', sygAutoriteContractante.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(sygAutoriteContractante)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="sygAutoriteContractantes && sygAutoriteContractantes.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

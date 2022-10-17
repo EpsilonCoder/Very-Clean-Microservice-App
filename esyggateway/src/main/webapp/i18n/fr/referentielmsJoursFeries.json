@@ -1,0 +1,29 @@
+{
+  "esyggatewayApp": {
+    "referentielmsJoursFeries": {
+      "home": {
+        "title": "JoursFeries",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Jours Feries",
+        "createOrEditLabel": "Créer ou éditer un Jours Feries",
+        "notFound": "Aucun Jours Feries trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Jours Feries {{ id }} ?"
+      },
+      "detail": {
+        "title": "Jours Feries"
+      },
+      "id": "ID",
+      "date": "Date",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsJoursFeries": {
+      "created": "Un nouveau Jours Feries a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Jours Feries avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Jours Feries avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

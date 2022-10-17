@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="delais">
+      <h2 data-cy="delaisDetailsHeading"><span jhiTranslate="esyggatewayApp.referentielmsDelais.detail.title">Delais</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ delais.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ delais.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.code">Code</span></dt>
+        <dd>
+          <span>{{ delais.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.unite">Unite</span></dt>
+        <dd>
+          <span>{{ delais.unite }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.valeur">Valeur</span></dt>
+        <dd>
+          <span>{{ delais.valeur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.debutValidite">Debut Validite</span></dt>
+        <dd>
+          <span>{{ delais.debutValidite | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.finValidite">Fin Validite</span></dt>
+        <dd>
+          <span>{{ delais.finValidite | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsDelais.commentaires">Commentaires</span></dt>
+        <dd>
+          <span>{{ delais.commentaires }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/delais', delais.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

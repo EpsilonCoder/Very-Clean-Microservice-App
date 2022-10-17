@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="personnesRessources">
+      <h2 data-cy="personnesRessourcesDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.detail.title">Personnes Ressources</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ personnesRessources.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ personnesRessources.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.nom">Nom</span></dt>
+        <dd>
+          <span>{{ personnesRessources.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.email">Email</span></dt>
+        <dd>
+          <span>{{ personnesRessources.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ personnesRessources.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.fonction">Fonction</span></dt>
+        <dd>
+          <span>{{ personnesRessources.fonction }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPersonnesRessources.commentaires">Commentaires</span></dt>
+        <dd>
+          <span>{{ personnesRessources.commentaires }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/personnes-ressources', personnesRessources.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

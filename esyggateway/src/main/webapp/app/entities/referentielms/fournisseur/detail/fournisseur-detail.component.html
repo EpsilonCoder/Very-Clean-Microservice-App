@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fournisseur">
+      <h2 data-cy="fournisseurDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsFournisseur.detail.title">Fournisseur</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.raisonSociale">Raison Sociale</span></dt>
+        <dd>
+          <span>{{ fournisseur.raisonSociale }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ fournisseur.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.email">Email</span></dt>
+        <dd>
+          <span>{{ fournisseur.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ fournisseur.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.pieceJointe">Piece Jointe</span></dt>
+        <dd>
+          <span>{{ fournisseur.pieceJointe }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.numeroRegistreCommerce">Numero Registre Commerce</span></dt>
+        <dd>
+          <span>{{ fournisseur.numeroRegistreCommerce }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.date">Date</span></dt>
+        <dd>
+          <span>{{ fournisseur.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.sigle">Sigle</span></dt>
+        <dd>
+          <span>{{ fournisseur.sigle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.numeroIdentiteFiscale">Numero Identite Fiscale</span></dt>
+        <dd>
+          <span>{{ fournisseur.numeroIdentiteFiscale }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.categorieFournisseur">Categorie Fournisseur</span></dt>
+        <dd>
+          <div *ngIf="fournisseur.categorieFournisseur">
+            <a [routerLink]="['/categorie-fournisseur', fournisseur.categorieFournisseur.id, 'view']">{{
+              fournisseur.categorieFournisseur.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsFournisseur.pays">Pays</span></dt>
+        <dd>
+          <div *ngIf="fournisseur.pays">
+            <a [routerLink]="['/pays', fournisseur.pays.id, 'view']">{{ fournisseur.pays.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fournisseur', fournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

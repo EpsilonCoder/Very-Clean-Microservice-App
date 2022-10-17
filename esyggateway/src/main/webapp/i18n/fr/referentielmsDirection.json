@@ -1,0 +1,30 @@
+{
+  "esyggatewayApp": {
+    "referentielmsDirection": {
+      "home": {
+        "title": "Directions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Direction",
+        "createOrEditLabel": "Créer ou éditer un Direction",
+        "notFound": "Aucun Direction trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Direction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Direction"
+      },
+      "id": "ID",
+      "sigle": "Sigle",
+      "libelle": "Libelle",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsDirection": {
+      "created": "Un nouveau Direction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Direction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Direction avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

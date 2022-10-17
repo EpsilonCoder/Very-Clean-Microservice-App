@@ -1,0 +1,28 @@
+{
+  "esyggatewayApp": {
+    "referentielmsSpecialitesPersonnel": {
+      "home": {
+        "title": "SpecialitesPersonnels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Specialites Personnel",
+        "createOrEditLabel": "Créer ou éditer un Specialites Personnel",
+        "notFound": "Aucun Specialites Personnel trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Specialites Personnel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Specialites Personnel"
+      },
+      "id": "ID",
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsSpecialitesPersonnel": {
+      "created": "Un nouveau Specialites Personnel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Specialites Personnel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Specialites Personnel avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

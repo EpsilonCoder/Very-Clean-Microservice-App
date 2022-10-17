@@ -1,0 +1,29 @@
+{
+  "esyggatewayApp": {
+    "referentielmsFonction": {
+      "home": {
+        "title": "Fonctions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fonction",
+        "createOrEditLabel": "Créer ou éditer un Fonction",
+        "notFound": "Aucun Fonction trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fonction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fonction"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsFonction": {
+      "created": "Un nouveau Fonction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fonction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fonction avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

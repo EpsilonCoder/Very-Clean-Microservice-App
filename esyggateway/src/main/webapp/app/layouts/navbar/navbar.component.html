@@ -1,0 +1,966 @@
+<div id="main-wrapper ">
+
+  <!--**********************************
+          Header start
+      ***********************************-->
+
+      <div class="nav-header border-bottom">
+        <a href="index.html" class="brand-logo">
+        <img src="content/images/Senegal.svg.png" width="80" height="80"/>
+    <div class="brand-title">
+      <h2 class="">Sigmap</h2>
+      <span class="brand-sub-title">Sénégal</span>
+    </div>
+        </a>
+        <div class="nav-control">
+            <div class="hamburger">
+                <span class="line"></span><span class="line"></span><span class="line"></span>
+            </div>
+        </div>
+    </div>
+
+      <div class="header border-bottom">
+
+        <!--================Le navbar généré par jhipster=========================-->
+        <nav data-cy="navbar" class="navbar navbar-light navbar-expand-md bg-white">
+          <div class="container-fluid">
+            <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+              <span class="logo-img"></span>
+              <span jhiTranslate="global.title" class="navbar-title">Sigmap</span>
+              <span class="navbar-version">{{ version }}</span>
+            </a>
+            <a
+              class="navbar-toggler d-lg-none"
+              href="javascript:void(0);"
+              data-toggle="collapse"
+              data-target="#navbarResponsive"
+              aria-controls="navbarResponsive"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              (click)="toggleNavbar()"
+            >
+              <fa-icon icon="bars"></fa-icon>
+            </a>
+            <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                  <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+                    <span>
+                      <fa-icon icon="home"></fa-icon>
+                      <span jhiTranslate="global.menu.home">Accueil</span>
+                    </span>
+                  </a>
+                </li>
+
+                <li
+                *ngSwitchCase="true"
+                ngbDropdown
+                class="nav-item dropdown pointer"
+                display="dynamic"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu" data-cy="entity">
+                  <span>
+                    <fa-icon icon="th-list"></fa-icon>
+                    <span jhiTranslate="global.menu.entities.main">Entités</span>
+                  </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="fonction"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsFonction">Fonction</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="mode-selection"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsModeSelection">Mode Selection</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="type-autorite-contractante"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="banque"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsBanque">Banque</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="criteres-qualification"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsCriteresQualification">Criteres Qualification</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="departement"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsDepartement">Departement</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="situation-matrimoniale"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsSituationMatrimoniale">Situation Matrimoniale</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="specialites-personnel"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsSpecialitesPersonnel">Specialites Personnel</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="groupes-imputation"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsGroupesImputation">Groupes Imputation</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="pieces-administratives"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsPiecesAdministratives">Pieces Administratives</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="hierarchie"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsHierarchie">Hierarchie</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="direction"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsDirection">Direction</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="jours-feries"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsJoursFeries">Jours Feries</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="delais"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsDelais">Delais</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="garantie"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsGarantie">Garantie</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="natures-garantie"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsNaturesGarantie">Natures Garantie</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="sources-financement"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsSourcesFinancement">Sources Financement</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="categories"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsCategories">Categories</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="autorite-contractante"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsAutoriteContractante">Autorite Contractante</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="syg-autorite-contractante"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsSygAutoriteContractante">Syg Autorite Contractante</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="avis-generaux"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsAvisGeneraux">Avis Generaux</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="types-marches"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsTypesMarches">Types Marches</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="personnes-ressources"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsPersonnesRessources">Personnes Ressources</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="categorie-fournisseur"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsCategorieFournisseur">Categorie Fournisseur</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="pays"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsPays">Pays</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="configuration-taux"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsConfigurationTaux">Configuration Taux</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      routerLink="fournisseur"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="collapseNavbar()"
+                    >
+                      <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                      <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Fournisseur</span>
+                    </a>
+                  </li>
+                  <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+              </li>
+
+                <li
+                  *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                  ngbDropdown
+                  class="nav-item dropdown pointer"
+                  display="dynamic"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                >
+                  <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu" data-cy="adminMenu">
+                    <span>
+                      <fa-icon icon="users-cog"></fa-icon>
+                      <span jhiTranslate="global.menu.admin.main">Administration</span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
+                    <li>
+                      <a class="dropdown-item" routerLink="admin/gateway" routerLinkActive="active" (click)="collapseNavbar()">
+                        <fa-icon icon="road" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="admin/metrics" routerLinkActive="active" (click)="collapseNavbar()">
+                        <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.admin.metrics">Métriques</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active" (click)="collapseNavbar()">
+                        <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.admin.health">Diagnostics</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="admin/configuration" routerLinkActive="active" (click)="collapseNavbar()">
+                        <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active" (click)="collapseNavbar()">
+                        <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.admin.logs">Logs</span>
+                      </a>
+                    </li>
+                    <li *ngIf="openAPIEnabled">
+                      <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
+                        <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.admin.apidocs">API</span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </li>
+                <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
+                  <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+                    <span>
+                      <fa-icon icon="flag"></fa-icon>
+                      <span jhiTranslate="global.menu.language">Langue</span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+                    <li *ngFor="let language of languages">
+                      <a
+                        class="dropdown-item"
+                        [jhiActiveMenu]="language"
+                        href="javascript:void(0);"
+                        (click)="changeLanguage(language); collapseNavbar()"
+                        >{{ language | findLanguageFromKey }}</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  ngbDropdown
+                  class="nav-item dropdown pointer"
+                  display="dynamic"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                >
+                  <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
+                    <span *ngIf="!account?.imageUrl">
+                      <fa-icon icon="user"></fa-icon>
+                      <span jhiTranslate="global.menu.account.main">Compte</span>
+                    </span>
+                    <span *ngIf="account?.imageUrl">
+                      <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+                    <li *ngSwitchCase="true">
+                      <a class="dropdown-item" (click)="logout()" id="logout" data-cy="logout">
+                        <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.account.logout">Déconnexion</span>
+                      </a>
+                    </li>
+                    <li *ngSwitchCase="false">
+                      <a class="dropdown-item" (click)="login()" id="login" data-cy="login">
+                        <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.account.login">S'authentifier</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+  </div>
+</div>
+    <!--**********************************
+        Header end ti-comment-alt
+    ***********************************-->
+
+
+
+
+
+
+<div class="dlabnav">
+<div class="dlabnav-scroll"
+*jhiHasAnyAuthority="'ROLE_ADMIN'"
+ngbDropdown
+class="nav-item dropdown pointer"
+display="dynamic"
+routerLinkActive="active"
+[routerLinkActiveOptions]="{ exact: true }">
+<ul class="metismenu" id="menu">
+        <li><a class="has-arrow"  href="javascript:void(0);" aria-expanded="false">
+  <i class="fas fa-home"></i>
+  <span class="nav-text">Plan de passation</span>
+</a>
+            <ul aria-expanded="false">
+  <li><a href="index.html">Dashboard Light</a></li>
+  <li><a href="index-2.html">Dashboard Dark</a></li>
+  <li><a href="project-page.html">Project</a></li>
+  <li><a href="contacts.html">Contacts</a></li>
+  <li><a href="kanban.html">Kanban</a></li>
+  <li><a href="calendar-page.html">Calendar</a></li>
+  <li><a href="message.html">Messages</a></li>
+</ul>
+
+        </li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+<i class="fas fa-info-circle"></i>
+  <span class="nav-text">Référentiel</span>
+</a>
+            <ul aria-expanded="false">
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="fonction"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsFonction">Fonction</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="mode-selection"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsModeSelection">Mode Selection</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="type-autorite-contractante"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="banque"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsBanque">Banque</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="criteres-qualification"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsCriteresQualification">Criteres Qualification</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="departement"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsDepartement">Departement</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="situation-matrimoniale"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsSituationMatrimoniale">Situation Matrimoniale</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="specialites-personnel"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsSpecialitesPersonnel">Specialites Personnel</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="groupes-imputation"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsGroupesImputation">Groupes Imputation</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="pieces-administratives"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsPiecesAdministratives">Pieces Administratives</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="hierarchie"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsHierarchie">Hierarchie</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="direction"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsDirection">Direction</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="jours-feries"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsJoursFeries">Jours Feries</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="delais"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsDelais">Delais</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="garantie"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsGarantie">Garantie</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="natures-garantie"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsNaturesGarantie">Natures Garantie</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="sources-financement"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsSourcesFinancement">Sources Financement</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="categories"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsCategories">Categories</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="autorite-contractante"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsAutoriteContractante">Autorite Contractante</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="syg-autorite-contractante"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsSygAutoriteContractante">Syg Autorite Contractante</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="avis-generaux"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsAvisGeneraux">Avis Generaux</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="types-marches"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsTypesMarches">Types Marches</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="personnes-ressources"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsPersonnesRessources">Personnes Ressources</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="categorie-fournisseur"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsCategorieFournisseur">Categorie Fournisseur</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="pays"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsPays">Pays</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="configuration-taux"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsConfigurationTaux">Configuration Taux</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="fournisseur"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Fournisseur</span>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+  <i class="fas fa-file-alt"></i>
+  <span class="nav-text">Traitement des dossiers</span>
+</a>
+            <ul aria-expanded="false">
+                <li><a href="chart-flot.html">--------</a></li>
+                <li><a href="chart-morris.html"></a>--------</li>
+                <li><a href="chart-chartjs.html">--------</a></li>
+                <li><a href="chart-chartist.html">--------</a></li>
+                <li><a href="chart-sparkline.html">--------</a></li>
+                <li><a href="chart-peity.html">--------</a></li>
+            </ul>
+        </li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+  <i class="fab fa-icon"></i>
+  <span class="nav-text">Configuration Seuil</span>
+</a>
+            <ul aria-expanded="false">
+                <li><a href="ui-accordion.html">--------</a></li>
+                <li><a href="ui-alert.html">--------</a></li>
+                <li><a href="ui-badge.html">--------</a></li>
+                <li><a href="ui-button.html">--------</a></li>
+                <li><a href="ui-modal.html">--------</a></li>
+                <li><a href="ui-button-group.html">--------</a></li>
+                
+
+            </ul>
+        </li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+  <i class="fas fa-heart"></i>
+  <span class="nav-text">-----------</span>
+</a>
+            <ul aria-expanded="false">
+                <li><a href="uc-select2.html">--------</a></li>
+                <li><a href="uc-nestable.html">--------</a></li>
+                <li><a href="uc-noui-slider.html">--------</a></li>
+                <li><a href="uc-sweetalert.html">--------</a></li>
+                <li><a href="uc-toastr.html">--------</a></li>
+                <li><a href="map-jqvmap.html">--------</a></li>
+  <li><a href="uc-lightgallery.html">--------</a></li>
+            </ul>
+        </li>
+        <li><a href="widget-basic.html" class="" aria-expanded="false">
+  <i class="fas fa-user-check"></i>
+  <span class="nav-text">--------</span>
+</a>
+</li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+  <i class="fas fa-file-alt"></i>
+  <span class="nav-text">--------</span>
+</a>
+            <ul aria-expanded="false">
+                <li><a href="form-element.html">--------</a></li>
+                <li><a href="form-wizard.html">--------</a></li>
+                <li><a href="form-ckeditor.html">--------</a></li>
+                <li><a href="form-pickers.html">--------</a></li>
+                <li><a href="form-validation.html">--------</a></li>
+            </ul>
+        </li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+  <i class="fas fa-table"></i>
+  <span class="nav-text">--------</span>
+</a>
+            <ul aria-expanded="false">
+                <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
+                <li><a href="table-datatable-basic.html">Datatable</a></li>
+            </ul>
+        </li>
+        <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+  <i class="fas fa-clone"></i>
+  <span class="nav-text">--------</span>
+</a>
+            <ul aria-expanded="false">
+                <li><a href="page-login.html">--------</a></li>
+                <li><a href="page-register.html">Register</a></li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+                    <ul aria-expanded="false">
+                        <li><a href="page-error-400.html">Error 400</a></li>
+                        <li><a href="page-error-403.html">Error 403</a></li>
+                        <li><a href="page-error-404.html">Error 404</a></li>
+                        <li><a href="page-error-500.html">Error 500</a></li>
+                        <li><a href="page-error-503.html">Error 503</a></li>
+                    </ul>
+                </li>
+                <li><a href="page-lock-screen.html">Lock Screen</a></li>
+                <li><a href="empty-page.html">Empty Page</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</div>
+<!--**********************************
+Sidebar end
+***********************************-->

@@ -1,0 +1,30 @@
+{
+  "esyggatewayApp": {
+    "referentielmsGarantie": {
+      "home": {
+        "title": "Garanties",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Garantie",
+        "createOrEditLabel": "Créer ou éditer un Garantie",
+        "notFound": "Aucun Garantie trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Garantie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Garantie"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "typeGarantie": "Type Garantie",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsGarantie": {
+      "created": "Un nouveau Garantie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Garantie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Garantie avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

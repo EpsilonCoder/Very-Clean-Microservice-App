@@ -1,0 +1,29 @@
+{
+  "esyggatewayApp": {
+    "referentielmsCategorieFournisseur": {
+      "home": {
+        "title": "CategorieFournisseurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Categorie Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Categorie Fournisseur",
+        "notFound": "Aucun Categorie Fournisseur trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Categorie Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Categorie Fournisseur"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsCategorieFournisseur": {
+      "created": "Un nouveau Categorie Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Categorie Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Categorie Fournisseur avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

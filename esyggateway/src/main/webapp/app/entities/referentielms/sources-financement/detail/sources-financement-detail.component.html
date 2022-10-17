@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sourcesFinancement">
+      <h2 data-cy="sourcesFinancementDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsSourcesFinancement.detail.title">Sources Financement</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sourcesFinancement.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSourcesFinancement.code">Code</span></dt>
+        <dd>
+          <span>{{ sourcesFinancement.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSourcesFinancement.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ sourcesFinancement.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSourcesFinancement.corbeille">Corbeille</span></dt>
+        <dd>
+          <span>{{ sourcesFinancement.corbeille }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sources-financement', sourcesFinancement.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

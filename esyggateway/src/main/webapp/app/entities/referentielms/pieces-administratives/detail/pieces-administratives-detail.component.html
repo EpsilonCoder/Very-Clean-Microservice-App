@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="piecesAdministratives">
+      <h2 data-cy="piecesAdministrativesDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.detail.title">Pieces Administratives</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ piecesAdministratives.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.code">Code</span></dt>
+        <dd>
+          <span>{{ piecesAdministratives.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ piecesAdministratives.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.description">Description</span></dt>
+        <dd>
+          <span>{{ piecesAdministratives.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.localisation">Localisation</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'esyggatewayApp.enumLocalisation.' + piecesAdministratives.localisation }}">{{
+            piecesAdministratives.localisation
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsPiecesAdministratives.type">Type</span></dt>
+        <dd>
+          <span>{{ piecesAdministratives.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

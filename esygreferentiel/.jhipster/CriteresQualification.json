@@ -1,0 +1,17 @@
+{
+  "changelogDate": "20210813212437",
+  "clientRootFolder": "referentielms",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "referentielms",
+  "name": "CriteresQualification",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

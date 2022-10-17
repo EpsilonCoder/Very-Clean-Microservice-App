@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Realisation.
+    -->
+    <changeSet id="20221003140308-1" author="jhipster">
+        <createTable tableName="realisation">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="libelle" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_attribution" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="delaiexecution" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="objet" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="montant" type="decimal(21,2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="examen_dncmp" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="examen_ptf" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="chapitre_imputation" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="autorisation_engagement" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_reception_dossier" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_non_objection" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_autorisation" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_recep_non_objection" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_recep_doss_corrige" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_pub_par_prmp" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_ouverture_plis" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_recep_non_object_ocmp" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_recep_rapport_eva" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_recep_non_object_ptf" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_examen_juridique" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_notif_contrat" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_approbation_contrat" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="plan_passation_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20221003140308-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/realisation.csv"
+                  separator=";"
+                  tableName="realisation"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="libelle" type="string"/>
+            <column name="date_attribution" type="date"/>
+            <column name="delaiexecution" type="numeric"/>
+            <column name="objet" type="string"/>
+            <column name="montant" type="numeric"/>
+            <column name="examen_dncmp" type="numeric"/>
+            <column name="examen_ptf" type="numeric"/>
+            <column name="chapitre_imputation" type="string"/>
+            <column name="autorisation_engagement" type="string"/>
+            <column name="date_reception_dossier" type="date"/>
+            <column name="date_non_objection" type="date"/>
+            <column name="date_autorisation" type="date"/>
+            <column name="date_recep_non_objection" type="date"/>
+            <column name="date_recep_doss_corrige" type="date"/>
+            <column name="date_pub_par_prmp" type="date"/>
+            <column name="date_ouverture_plis" type="date"/>
+            <column name="date_recep_non_object_ocmp" type="date"/>
+            <column name="date_recep_rapport_eva" type="date"/>
+            <column name="date_recep_non_object_ptf" type="date"/>
+            <column name="date_examen_juridique" type="date"/>
+            <column name="date_notif_contrat" type="date"/>
+            <column name="date_approbation_contrat" type="date"/>
+            <column name="plan_passation_id" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

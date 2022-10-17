@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Fournisseur.
+    -->
+    <changeSet id="20211104112100-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="categorie_fournisseur_id"
+                                 baseTableName="fournisseur"
+                                 constraintName="fk_fournisseur__categorie_fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="categorie_fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="pays_id"
+                                 baseTableName="fournisseur"
+                                 constraintName="fk_fournisseur__pays_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pays"/>
+    </changeSet>
+</databaseChangeLog>

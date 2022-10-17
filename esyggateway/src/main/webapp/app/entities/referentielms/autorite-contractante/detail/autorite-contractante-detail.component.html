@@ -1,0 +1,85 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="autoriteContractante">
+      <h2 data-cy="autoriteContractanteDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.detail.title">Autorite Contractante</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.ordre">Ordre</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.ordre }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.denomination">Denomination</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.denomination }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.responsable">Responsable</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.responsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.fax">Fax</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.email">Email</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.sigle">Sigle</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.sigle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.urlsiteweb">Urlsiteweb</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.urlsiteweb }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.approbation">Approbation</span></dt>
+        <dd>
+          <span>{{ autoriteContractante.approbation }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.logo">Logo</span></dt>
+        <dd>
+          <div *ngIf="autoriteContractante.logo">
+            <a (click)="openFile(autoriteContractante.logo, autoriteContractante.logoContentType)">
+              <img
+                [src]="'data:' + autoriteContractante.logoContentType + ';base64,' + autoriteContractante.logo"
+                style="max-width: 100%"
+                alt="autoriteContractante image"
+              />
+            </a>
+            {{ autoriteContractante.logoContentType }}, {{ byteSize(autoriteContractante.logo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsAutoriteContractante.type">Type</span></dt>
+        <dd>
+          <div *ngIf="autoriteContractante.type">
+            <a [routerLink]="['/type-autorite-contractante', autoriteContractante.type.id, 'view']">{{ autoriteContractante.type.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,255 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-syg-autorite-contractante-heading"
+        data-cy="SygAutoriteContractanteCreateUpdateHeading"
+        jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.home.createOrEditLabel"
+      >
+        Créer ou éditer un Syg Autorite Contractante
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.ordre" for="field_ordre">Ordre</label>
+          <input type="number" class="form-control" name="ordre" id="field_ordre" data-cy="ordre" formControlName="ordre" />
+          <div *ngIf="editForm.get('ordre')!.invalid && (editForm.get('ordre')!.dirty || editForm.get('ordre')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('ordre')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('ordre')?.errors?.number" jhiTranslate="entity.validation.number">
+              Ce champ doit être un nombre.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.denomination" for="field_denomination"
+            >Denomination</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="denomination"
+            id="field_denomination"
+            data-cy="denomination"
+            formControlName="denomination"
+          />
+          <div
+            *ngIf="editForm.get('denomination')!.invalid && (editForm.get('denomination')!.dirty || editForm.get('denomination')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('denomination')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.responsable" for="field_responsable"
+            >Responsable</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="responsable"
+            id="field_responsable"
+            data-cy="responsable"
+            formControlName="responsable"
+          />
+          <div *ngIf="editForm.get('responsable')!.invalid && (editForm.get('responsable')!.dirty || editForm.get('responsable')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('responsable')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.adresse" for="field_adresse"
+            >Adresse</label
+          >
+          <input type="text" class="form-control" name="adresse" id="field_adresse" data-cy="adresse" formControlName="adresse" />
+          <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('adresse')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.telephone" for="field_telephone"
+            >Telephone</label
+          >
+          <input type="text" class="form-control" name="telephone" id="field_telephone" data-cy="telephone" formControlName="telephone" />
+          <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('telephone')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.fax" for="field_fax">Fax</label>
+          <input type="text" class="form-control" name="fax" id="field_fax" data-cy="fax" formControlName="fax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.sigle" for="field_sigle">Sigle</label>
+          <input type="text" class="form-control" name="sigle" id="field_sigle" data-cy="sigle" formControlName="sigle" />
+          <div *ngIf="editForm.get('sigle')!.invalid && (editForm.get('sigle')!.dirty || editForm.get('sigle')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('sigle')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.urlsiteweb" for="field_urlsiteweb"
+            >Urlsiteweb</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="urlsiteweb"
+            id="field_urlsiteweb"
+            data-cy="urlsiteweb"
+            formControlName="urlsiteweb"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.approbation" for="field_approbation"
+            >Approbation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="approbation"
+            id="field_approbation"
+            data-cy="approbation"
+            formControlName="approbation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.logo" for="field_logo">Logo</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('logoContentType')!.value + ';base64,' + editForm.get('logo')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('logo')!.value"
+              alt="sygAutoriteContractante image"
+            />
+            <div *ngIf="editForm.get('logo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start">{{ editForm.get('logoContentType')!.value }}, {{ byteSize(editForm.get('logo')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('logo', 'logoContentType', 'file_logo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_logo"
+              data-cy="logo"
+              (change)="setFileData($event, 'logo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="logo" id="field_logo" data-cy="logo" formControlName="logo" />
+          <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType" formControlName="logoContentType" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.typeAutoriteContractante"
+            for="field_typeAutoriteContractante"
+            >Type Autorite Contractante</label
+          >
+          <select
+            class="form-control"
+            id="field_typeAutoriteContractante"
+            data-cy="typeAutoriteContractante"
+            name="typeAutoriteContractante"
+            formControlName="typeAutoriteContractante"
+            [compareWith]="compareTypeAutoriteContractante"
+          >
+            <option *ngIf="!editForm.get('typeAutoriteContractante')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="typeAutoriteContractanteOption"
+              *ngFor="let typeAutoriteContractanteOption of typeAutoriteContractantesSharedCollection"
+            >
+              {{ typeAutoriteContractanteOption.id }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            editForm.get(['typeAutoriteContractante'])!.invalid &&
+            (editForm.get(['typeAutoriteContractante'])!.dirty || editForm.get(['typeAutoriteContractante'])!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['typeAutoriteContractante'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Ce champ est obligatoire.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,152 @@
+<div>
+  <h2 id="page-heading" data-cy="ConfigurationTauxHeading">
+    <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.home.title">ConfigurationTauxes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-configuration-taux"
+        [routerLink]="['/configuration-taux/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.home.createLabel"> Créer un nouveau Configuration Taux </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="configurationTauxes?.length === 0">
+    <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.home.notFound">Aucun Configuration Taux trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="configurationTauxes && configurationTauxes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="code">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.code">Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="libelle">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.libelle">Libelle</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="taux">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.taux">Taux</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dateDebut">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.dateDebut">Date Debut</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dateFin">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.dateFin">Date Fin</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="invalid">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.invalid">Invalid</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pays.id">
+            <div class="d-flex">
+              <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.pays">Pays</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let configurationTaux of configurationTauxes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a>
+          </td>
+          <td>{{ configurationTaux.code }}</td>
+          <td>{{ configurationTaux.libelle }}</td>
+          <td>{{ configurationTaux.taux }}</td>
+          <td>{{ configurationTaux.dateDebut | formatMediumDatetime }}</td>
+          <td>{{ configurationTaux.dateFin | formatMediumDatetime }}</td>
+          <td>{{ configurationTaux.invalid }}</td>
+          <td>
+            <div *ngIf="configurationTaux.pays">
+              <a [routerLink]="['/pays', configurationTaux.pays.id, 'view']">{{ configurationTaux.pays.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/configuration-taux', configurationTaux.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/configuration-taux', configurationTaux.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(configurationTaux)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="configurationTauxes && configurationTauxes.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

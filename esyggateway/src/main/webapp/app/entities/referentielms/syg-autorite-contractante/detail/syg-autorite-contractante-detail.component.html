@@ -1,0 +1,95 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sygAutoriteContractante">
+      <h2 data-cy="sygAutoriteContractanteDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.detail.title">Syg Autorite Contractante</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.ordre">Ordre</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.ordre }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.denomination">Denomination</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.denomination }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.responsable">Responsable</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.responsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.fax">Fax</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.email">Email</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.sigle">Sigle</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.sigle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.urlsiteweb">Urlsiteweb</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.urlsiteweb }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.approbation">Approbation</span></dt>
+        <dd>
+          <span>{{ sygAutoriteContractante.approbation }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.logo">Logo</span></dt>
+        <dd>
+          <div *ngIf="sygAutoriteContractante.logo">
+            <a (click)="openFile(sygAutoriteContractante.logo, sygAutoriteContractante.logoContentType)">
+              <img
+                [src]="'data:' + sygAutoriteContractante.logoContentType + ';base64,' + sygAutoriteContractante.logo"
+                style="max-width: 100%"
+                alt="sygAutoriteContractante image"
+              />
+            </a>
+            {{ sygAutoriteContractante.logoContentType }}, {{ byteSize(sygAutoriteContractante.logo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="esyggatewayApp.referentielmsSygAutoriteContractante.typeAutoriteContractante"
+            >Type Autorite Contractante</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="sygAutoriteContractante.typeAutoriteContractante">
+            <a [routerLink]="['/type-autorite-contractante', sygAutoriteContractante.typeAutoriteContractante.id, 'view']">{{
+              sygAutoriteContractante.typeAutoriteContractante.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/syg-autorite-contractante', sygAutoriteContractante.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

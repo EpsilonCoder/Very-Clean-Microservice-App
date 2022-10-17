@@ -1,0 +1,35 @@
+{
+  "esyggatewayApp": {
+    "referentielmsAvisGeneraux": {
+      "home": {
+        "title": "AvisGenerauxes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Avis Generaux",
+        "createOrEditLabel": "Créer ou éditer un Avis Generaux",
+        "notFound": "Aucun Avis Generaux trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Avis Generaux {{ id }} ?"
+      },
+      "detail": {
+        "title": "Avis Generaux"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "annee": "Annee",
+      "description": "Description",
+      "fichierAvis": "Fichier Avis",
+      "version": "Version",
+      "lastVersionValid": "Last Version Valid",
+      "etat": "Etat",
+      "datePublication": "Date Publication"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsAvisGeneraux": {
+      "created": "Un nouveau Avis Generaux a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Avis Generaux avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Avis Generaux avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

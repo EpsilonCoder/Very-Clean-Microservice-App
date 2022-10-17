@@ -1,0 +1,23 @@
+{
+  "applications": "*",
+  "changelogDate": "20221003145754",
+  "clientRootFolder": "planpassationms",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "param_date",
+  "fields": [
+    {
+      "fieldName": "dateCreat",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "esygPassation",
+  "name": "ParamDate",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

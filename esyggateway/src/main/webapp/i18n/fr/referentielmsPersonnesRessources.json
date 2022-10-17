@@ -1,0 +1,33 @@
+{
+  "esyggatewayApp": {
+    "referentielmsPersonnesRessources": {
+      "home": {
+        "title": "PersonnesRessources",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Personnes Ressources",
+        "createOrEditLabel": "Créer ou éditer un Personnes Ressources",
+        "notFound": "Aucun Personnes Ressources trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Personnes Ressources {{ id }} ?"
+      },
+      "detail": {
+        "title": "Personnes Ressources"
+      },
+      "id": "ID",
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "email": "Email",
+      "telephone": "Telephone",
+      "fonction": "Fonction",
+      "commentaires": "Commentaires"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsPersonnesRessources": {
+      "created": "Un nouveau Personnes Ressources a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Personnes Ressources avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Personnes Ressources avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

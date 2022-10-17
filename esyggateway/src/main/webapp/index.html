@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sigmap</title>
+    <meta name="description" content="Description for esygGateway" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#000000" />
+    <base href="/" />
+    <link rel="icon" href="content/images/Senegal.svg.png" />
+    <link rel="manifest" href="manifest.webapp" />
+    <link rel="stylesheet" href="content/css/loading.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sidebar/0.2.2/css/sidebar.min.css" integrity="sha512-O9K5k9FmvGGki/KzlZILsumgDZFyPPGoBhDYQDiGiUC07r3oZp4xJ+R33p5HwUsOFdNEq6Yn7clp06/aY+4DYw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sidebar/0.2.2/css/sidebar.css" integrity="sha512-9TYxg9MF+EyAlBMU+sB9Yrcrpj2kbfVpsTn1whJpKjEdR1gLAjMPj/DRBqk62jNpo/pTtKHuSOveRyz/iVN9aA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ========================================================= -->
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	  <link href="content/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+	  <link href="content/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+	  <link rel="stylesheet" href="content/vendor/nouislider/nouislider.min.css">
+    <link href="content/css/style.css" rel="stylesheet">
+    <!-- ========================================================= -->
+
+
+
+    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
+  </head>
+  <body>
+    <!--[if lt IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <jhi-main>
+      <div class="app-loading">
+        <div id="preloader">
+          <div class="lds-ripple">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+    </jhi-main>
+    <noscript>
+      <h1>You must enable JavaScript to view this page.</h1>
+    </noscript>
+    <script type="text/javascript">
+      // show an error message if the app loading takes more than 4 sec
+      window.onload = function () {
+        setTimeout(showError, 4000);
+      };
+      function showError() {
+        var errorElm = document.getElementById('jhipster-error');
+        if (errorElm && errorElm.style) {
+          errorElm.style.display = 'block';
+        }
+      }
+    </script>
+    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>-->
+
+    <!-- ========================================================= -->
+    <!-- Required vendors -->
+    <script src="content/vendor/global/global.min.js"></script>
+	  <script src="content/vendor/chart.js/Chart.bundle.min.js"></script>
+	  <script src="content/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+
+	<!-- Apex Chart -->
+	  <script src="content/vendor/apexchart/apexchart.js"></script>
+
+	  <script src="content/vendor/chart.js/Chart.bundle.min.js"></script>
+
+	<!-- Chart piety plugin files -->
+    <script src="content/vendor/peity/jquery.peity.min.js"></script>
+	<!-- Dashboard 1 -->
+	  <script src="content/js/dashboard/dashboard-1.js"></script>
+
+	  <script src="content/vendor/owl-carousel/owl.carousel.js"></script>
+
+    <script src="content/js/custom.min.js"></script>
+	  <script src="content/js/dlabnav-init.js"></script>
+	  <script src="content/js/epsilon.js"></script>
+    <script src="content/js/styleSwitcher.js"></script>
+
+  <script>
+		function cardsCenter()
+		{
+
+			/*  testimonial one function by = owl.carousel.js */
+
+
+
+			jQuery('.card-slider').owlCarousel({
+				loop:true,
+				margin:0,
+				nav:true,
+				//center:true,
+				slideSpeed: 3000,
+				paginationSpeed: 3000,
+				dots: true,
+				navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>'],
+				responsive:{
+					0:{
+						items:1
+					},
+					576:{
+						items:1
+					},
+					800:{
+						items:1
+					},
+					991:{
+						items:1
+					},
+					1200:{
+						items:1
+					},
+					1600:{
+						items:1
+					}
+				}
+			})
+		}
+
+		jQuery(window).on('load',function(){
+			setTimeout(function(){
+				cardsCenter();
+			}, 1000);
+		});
+
+	</script>
+
+  </body>
+</html>

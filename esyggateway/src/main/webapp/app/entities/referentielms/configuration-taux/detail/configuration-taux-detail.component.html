@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="configurationTaux">
+      <h2 data-cy="configurationTauxDetailsHeading">
+        <span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.detail.title">Configuration Taux</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ configurationTaux.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.code">Code</span></dt>
+        <dd>
+          <span>{{ configurationTaux.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ configurationTaux.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.taux">Taux</span></dt>
+        <dd>
+          <span>{{ configurationTaux.taux }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.dateDebut">Date Debut</span></dt>
+        <dd>
+          <span>{{ configurationTaux.dateDebut | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.dateFin">Date Fin</span></dt>
+        <dd>
+          <span>{{ configurationTaux.dateFin | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.invalid">Invalid</span></dt>
+        <dd>
+          <span>{{ configurationTaux.invalid }}</span>
+        </dd>
+        <dt><span jhiTranslate="esyggatewayApp.referentielmsConfigurationTaux.pays">Pays</span></dt>
+        <dd>
+          <div *ngIf="configurationTaux.pays">
+            <a [routerLink]="['/pays', configurationTaux.pays.id, 'view']">{{ configurationTaux.pays.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/configuration-taux', configurationTaux.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

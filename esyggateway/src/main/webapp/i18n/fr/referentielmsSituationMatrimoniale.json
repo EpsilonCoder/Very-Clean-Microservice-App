@@ -1,0 +1,28 @@
+{
+  "esyggatewayApp": {
+    "referentielmsSituationMatrimoniale": {
+      "home": {
+        "title": "SituationMatrimoniales",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Situation Matrimoniale",
+        "createOrEditLabel": "Créer ou éditer un Situation Matrimoniale",
+        "notFound": "Aucun Situation Matrimoniale trouvé"
+      },
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Situation Matrimoniale {{ id }} ?"
+      },
+      "detail": {
+        "title": "Situation Matrimoniale"
+      },
+      "id": "ID",
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsSituationMatrimoniale": {
+      "created": "Un nouveau Situation Matrimoniale a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Situation Matrimoniale avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Situation Matrimoniale avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}
